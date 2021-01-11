@@ -56,7 +56,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
             else
             {
                 await myApplicantRepository.AddApplicant(applicant).ConfigureAwait(false);
-                return Created(new Uri("/api/Applicant/{id}"), applicant);
+                return Created(new Uri($"https://localhost:5001/api/ApplicantV1/{applicant.ID}"), applicant);
             }
         }
         /// <summary>

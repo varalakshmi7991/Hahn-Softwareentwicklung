@@ -12,7 +12,7 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Data.Validators
             RuleFor(applicant => applicant.Address).MinimumLength(10);
             RuleFor(applicant => applicant.Age).InclusiveBetween(20, 60);
             RuleFor(applicant => applicant.Hired).NotNull();
-            RuleFor(applicant => applicant.EMailAdress).EmailAddress();
+            RuleFor(applicant => applicant.EmailAddress).EmailAddress();
             RuleFor(applicant => applicant.CountryOfOrigin).NotNull();
         }
     }

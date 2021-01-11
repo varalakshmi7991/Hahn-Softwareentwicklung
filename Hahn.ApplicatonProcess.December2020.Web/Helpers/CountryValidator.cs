@@ -5,13 +5,15 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Helpers
 {
     public class CountryValidator
     {
+        private readonly IConfiguration myConfiguration;
         private HttpClientProxy myHttpClientProxy;
         private string restCountriesApi;
 
         public CountryValidator(HttpClientProxy httpClientProxy, IConfiguration configuration)
         {
+            myConfiguration = configuration;
             myHttpClientProxy = httpClientProxy;
-            restCountriesApi = configuration.GetSection("RestCountriesApi").ToString();
+            restCountriesApi = myConfiguration.GetSection("RestCountriesApi").Value;
         }
         public async Task<bool> IsCountryValid(string countryName)
         {

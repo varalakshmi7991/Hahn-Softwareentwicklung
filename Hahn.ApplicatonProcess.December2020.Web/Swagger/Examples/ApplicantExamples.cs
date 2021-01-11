@@ -9,7 +9,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Swagger.Examples
     {
         public Applicant GetExamples()
         {
-            return new Applicant { ID = 1, Name = "TestApplicant1", Address = "TestAddress1", Age = 20, CountryOfOrigin = "India", EMailAdress = "TestApplicant1@yopmail.com", FamilyName = "TestFamilyName1", Hired = true };
+            return new Applicant { ID = 1, Name = "TestApplicant1", Address = "TestAddress1", Age = 20, CountryOfOrigin = "India", EmailAddress = "TestApplicant1@yopmail.com", FamilyName = "TestFamilyName1", Hired = true };
         }
     }
 
@@ -19,8 +19,8 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Swagger.Examples
         {
             return new List<Applicant>
             {
-               new Applicant { ID = 1, Name = "TestApplicant1", Address = "TestAddress1", Age = 20, CountryOfOrigin = "India", EMailAdress = "TestApplicant1@yopmail.com", FamilyName = "TestFamilyName1", Hired = true },
-               new Applicant { ID = 2, Name = "TestApplicant2", Address = "TestAddress2", Age = 59, CountryOfOrigin = "Germany", EMailAdress = "TestApplicant2@yopmail.com", FamilyName = "TestFamilyName2", Hired = true }
+               new Applicant { ID = 1, Name = "TestApplicant1", Address = "TestAddress1", Age = 20, CountryOfOrigin = "India", EmailAddress = "TestApplicant1@yopmail.com", FamilyName = "TestFamilyName1", Hired = true },
+               new Applicant { ID = 2, Name = "TestApplicant2", Address = "TestAddress2", Age = 59, CountryOfOrigin = "Germany", EmailAddress = "TestApplicant2@yopmail.com", FamilyName = "TestFamilyName2", Hired = true }
             };
         }
     }

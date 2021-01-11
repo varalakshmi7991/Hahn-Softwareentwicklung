@@ -1,5 +1,8 @@
 using Hahn.ApplicatonProcess.December2020.Domain;
+using Hahn.ApplicatonProcess.December2020.Domain.Business.Services;
+using Hahn.ApplicatonProcess.December2020.Domain.Business.Services.Interfaces;
 using Hahn.ApplicatonProcess.December2020.Web.Exception;
+using Hahn.ApplicatonProcess.December2020.Web.Helpers;
 using Hahn.ApplicatonProcess.December2020.Web.Swagger.Examples;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +38,9 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             services.Configure<Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions>(
                 Configuration.GetSection("Kestrel"));
             services.AddDbContext<ApplicationContext>(options => options.UseInMemoryDatabase(databaseName: "Applicants"));
+            services.AddScoped<IApplicantRepository, ApplicantRepository>();
+            services.AddSingleton<CountryValidator>();
+            services.AddSingleton<HttpClientProxy>();
             services.AddSingleton<ApplicantRequestExamples>();
             services.AddSingleton<ApplicantResponseExamples>();
             services.AddSwaggerGen(s =>

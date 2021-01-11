@@ -19,12 +19,14 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Business.Services
         public async Task AddApplicant(Applicant applicant)
         {
             await myApplicationContext.Applicants.Add(applicant).ReloadAsync();
+            await myApplicationContext.SaveChangesAsync();
         }
 
         public async Task DeleteApplicant(int id)
         {
             var applicantToBeRemoved = await myApplicationContext.Applicants.Where(a => a.ID == id).FirstOrDefaultAsync();
             myApplicationContext.Applicants.RemoveRange(applicantToBeRemoved);
+            await myApplicationContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Applicant>> GetAllApplicants()
@@ -44,7 +46,14 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Business.Services
             {
                 throw new Exception("Applicant Not found");
             }
-            await myApplicationContext.Applicants.Update(applicant).ReloadAsync();
+            applicantToBeUpdated.Name = applicant.Name;
+            applicantToBeUpdated.Address = applicant.Address;
+            applicantToBeUpdated.FamilyName = applicant.FamilyName;
+            applicantToBeUpdated.CountryOfOrigin = applicant.CountryOfOrigin;
+            applicantToBeUpdated.EmailAddress = applicant.EmailAddress;
+            applicantToBeUpdated.Age = applicant.Age;
+            applicantToBeUpdated.Hired = applicant.Hired;
+            await myApplicationContext.SaveChangesAsync();
         }
     }
 }
